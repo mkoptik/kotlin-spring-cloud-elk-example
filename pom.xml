@@ -8,10 +8,9 @@
     <artifactId>kotlin-spring-cloud-elk-example</artifactId>
     <packaging>pom</packaging>
     <version>1.0-SNAPSHOT</version>
-    <url>http://maven.apache.org</url>
 
     <modules>
-        <module>recipe-catalog-service</module>
+        <module>domain-services/recipe-catalog-service</module>
     </modules>
 
     <parent>

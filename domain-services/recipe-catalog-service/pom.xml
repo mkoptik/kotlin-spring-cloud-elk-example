@@ -11,8 +11,8 @@
         <groupId>eu.koptik.demo</groupId>
         <artifactId>kotlin-spring-cloud-elk-example</artifactId>
         <version>1.0-SNAPSHOT</version>
+        <relativePath>../../</relativePath>
     </parent>
-
 
     <dependencies>
         <dependency>
