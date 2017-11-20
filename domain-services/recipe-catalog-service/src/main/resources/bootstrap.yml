@@ -1,6 +1,9 @@
 spring:
   application:
     name: recipe-catalog
+  cloud:
+    config:
+      uri: http://localhost:8081
 
 eureka:
   client:
