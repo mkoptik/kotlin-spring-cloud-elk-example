@@ -11,6 +11,7 @@
 
     <modules>
         <module>backing-services/discovery-service</module>
+        <module>backing-services/edge-service</module>
         <module>domain-services/recipe-catalog-service</module>
     </modules>
 

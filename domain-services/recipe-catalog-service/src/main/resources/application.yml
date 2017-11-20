@@ -1,8 +1,11 @@
 spring:
   application:
-    name: recipe-service
+    name: recipe-catalog
 
 eureka:
   client:
     serviceUrl:
       defaultZone: http://localhost:8761/eureka/
+
+server:
+  port: 0
