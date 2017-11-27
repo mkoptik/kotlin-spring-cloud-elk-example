@@ -13,6 +13,7 @@
         <module>backing-services/discovery-service</module>
         <module>backing-services/edge-service</module>
         <module>backing-services/config-service</module>
+        <module>backing-services/authorization-service</module>
         <module>domain-services/recipe-catalog-service</module>
     </modules>
 
