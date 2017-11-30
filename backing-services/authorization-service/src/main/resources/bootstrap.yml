@@ -1,9 +1,14 @@
 spring:
   application:
     name: authorization-service
+  resources:
+    chain:
+      cache: false
   cloud:
     config:
       uri: http://localhost:8081
 
 server:
-  port: 8776
+  port: 8089
+
+logging.level.org.springframework.security: DEBUG
