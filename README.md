@@ -1,5 +1,10 @@
 # kotlin-spring-cloud-elk-example
 
+## Service configuration
+
+Project uses Spring Configuration Server for configuration files distribution into service instances. Most of the services (except the config service) contains only bootstrap.yml file, where is only minimum necessary configuration. 
+Usually only a URL to configuration server and own port. When a service is registered in service registry, port number is random.
+
 ## Authorization
 
 Application in this example uses detached OAuth2 service for managing authentication & authorization. Authenticated
