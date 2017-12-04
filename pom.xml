@@ -15,6 +15,7 @@
         <module>backing-services/config-service</module>
         <module>backing-services/authorization-service</module>
         <module>domain-services/recipe-catalog-service</module>
+        <module>domain-services/recipe-recommendation-service</module>
     </modules>
 
     <parent>

@@ -1,0 +1,9 @@
+spring:
+  application:
+    name: recipe-recommendation
+  cloud:
+    config:
+      uri: http://localhost:8081
+
+server:
+  port: 0
