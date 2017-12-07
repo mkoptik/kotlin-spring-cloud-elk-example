@@ -8,7 +8,7 @@ spring:
     config:
       server:
         git:
-          uri: https://github.com/mkoptik/kotlin-spring-cloud-elk-example-config.git
+          uri: file:///home/mkoptik/projects/kotlin-spring-cloud-elk-example-config
 
 management:
   security:

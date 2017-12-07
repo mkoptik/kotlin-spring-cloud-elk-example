@@ -6,9 +6,7 @@ import org.springframework.cloud.netflix.eureka.EnableEurekaClient
 
 @SpringBootApplication
 @EnableEurekaClient
-class RecipeServiceApplication {
-
-}
+class RecipeServiceApplication
 
 fun main(args: Array<String>) {
     SpringApplication.run(RecipeServiceApplication::class.java)

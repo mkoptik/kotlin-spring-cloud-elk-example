@@ -1,6 +1,8 @@
 package eu.koptik.demo.recipe.auth.config
 
+import org.springframework.context.annotation.Bean
 import org.springframework.context.annotation.Configuration
+import org.springframework.security.authentication.AuthenticationManager
 import org.springframework.security.config.annotation.authentication.builders.AuthenticationManagerBuilder
 import org.springframework.security.config.annotation.web.builders.HttpSecurity
 import org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter
@@ -20,7 +22,14 @@ class ConfigSecurity : WebSecurityConfigurerAdapter() {
                 .formLogin().loginPage("/login").usernameParameter("email").passwordParameter("password") .permitAll()
                 .and()
                 .logout().permitAll()
+                .and().httpBasic()
                 .and().csrf().disable()
+
+    }
+
+    @Bean
+    override fun authenticationManagerBean(): AuthenticationManager {
+        return super.authenticationManagerBean()
     }
 
 }

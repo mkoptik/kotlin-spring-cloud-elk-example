@@ -5,5 +5,10 @@ spring:
     config:
       uri: http://localhost:8081
 
+security:
+  oauth2:
+    sso:
+      loginPath: /login
+
 server:
   port: 8765
