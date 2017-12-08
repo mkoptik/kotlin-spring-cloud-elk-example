@@ -17,4 +17,14 @@ send it back to the user. User then sends the token in header with each HTTP req
 request header, it verifies token with authorization server's public key and extracts user's details from the token payload.
 
 Every oauth2 client uses client identification and secret for communication with authorization server. For simplicity, this information
-is hardcoded in authorization server's bean config. On client side, identification and secret are stored in configuration files.  
+is hardcoded in authorization server's bean config. On client side, identification and secret are stored in configuration files.
+
+## Frontend
+
+Frontend part is pure TypeScript with use of React and Redux for browser state management. There is no Spring Boot service
+for serving JavaScript files and other static resources. 
+
+Instead for development is used webpack-dev-server, which enables hot reload of React components and Redux reducers without loosing browser state.
+To start webpack dev server, run command ``$ npm start``
+
+For production environment is build docker container containing all static resources with generated JavaScript files.
