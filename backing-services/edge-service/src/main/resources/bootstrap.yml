@@ -8,7 +8,13 @@ spring:
 security:
   oauth2:
     sso:
-      loginPath: /login
+      loginPath: /api/uaa/login
+
+zuul:
+  routes:
+    ui:
+      path: /ui/**
+      url: http://localhost:3000/
 
 server:
   port: 8765

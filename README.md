@@ -27,4 +27,4 @@ for serving JavaScript files and other static resources.
 Instead for development is used webpack-dev-server, which enables hot reload of React components and Redux reducers without loosing browser state.
 To start webpack dev server, run command ``$ npm start``
 
-For production environment is build docker container containing all static resources with generated JavaScript files.
+For production environment is created docker container containing all static resources with generated JavaScript files.
