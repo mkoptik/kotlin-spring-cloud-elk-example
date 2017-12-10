@@ -3,24 +3,35 @@ import * as style from './style.css';
 import { connect } from 'react-redux';
 import { RouteComponentProps } from 'react-router';
 import { RootState } from '../../reducers';
+import {AppBar, Dialog, FlatButton, TextField} from "material-ui";
 
-export namespace App {
-  export interface Props extends RouteComponentProps<void> {
+interface AppProps {
 
-  }
-
-  export interface State {
-
-  }
 }
 
 @connect(mapStateToProps, mapDispatchToProps)
-export class App extends React.Component<App.Props, App.State> {
+export class App extends React.Component<AppProps, {}> {
+
+
 
   render() {
     const { children } = this.props;
+
+    const loginButton = <FlatButton label="Login" onClick={e => alert("xxx")} />;
+
+    const loginDialogActions = [
+        <FlatButton label="Cancel" />,
+        <FlatButton label="OK" primary={true} />
+    ];
+
     return (
-      <div className={style.normal}>Hello from App</div>
+      <div className={style.normal}>
+        <AppBar title="Spring Cloud Example Project | Perfect  Recipes" iconElementRight={loginButton} />
+        <Dialog title="Login to Perfect Recipes" modal={true} open={true} contentStyle={{maxWidth: "400px"}} actions={loginDialogActions}>
+            <TextField hintText="Your e-mail" fullWidth={true} value="" />
+            <TextField hintText="Password" fullWidth={true} type="password" value="" />
+        </Dialog>
+      </div>
     );
   }
 }
