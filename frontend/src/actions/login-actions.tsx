@@ -2,12 +2,24 @@ import {ThunkAction} from "redux-thunk";
 import {RootState} from "../reducers/index";
 import Axios, {AxiosRequestConfig} from "axios";
 import {AccessTokenResponse} from "../model/AccessTokenResponse";
+import {UserInfo} from "../model/UserInfo";
 
 export const OPEN_LOGIN_DIALOG = "OPEN_LOGIN_DIALOG";
+export const USER_LOGGED_IN = "USER_LOGGED_IN";
+export const USER_LOGGED_OUT = "USER_LOGGED_OUT";
 
 export interface OpenLoginDialogAction {
     type: typeof OPEN_LOGIN_DIALOG,
     open: boolean
+}
+
+export interface UserLoggedInAction {
+    type: typeof USER_LOGGED_IN
+    username: string
+}
+
+export interface UserLoggedOutAction {
+    type: typeof USER_LOGGED_OUT
 }
 
 export const openLoginDialog = (open: boolean): OpenLoginDialogAction => ({
@@ -30,8 +42,14 @@ export const login = (username: string, password: string): ThunkAction<void, Roo
     };
 
     Axios.post<AccessTokenResponse>("/uaa/oauth/token",  {}, config).then(response => {
-        alert(response.data.access_token);
-        // TODO: GET USER INFO HERE
+        Axios.defaults.headers.common['Authorization'] = `Bearer ${response.data.access_token}`;
+        return Axios.get<UserInfo>("/account/me")
+    }).then(response => {
+        const action: UserLoggedInAction = {
+            type: USER_LOGGED_IN,
+            username: response.data.username
+        };
+        dispatch(action)
     }).catch(error => {
         alert(error)
     })

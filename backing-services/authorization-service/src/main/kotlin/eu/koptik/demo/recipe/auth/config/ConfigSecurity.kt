@@ -11,7 +11,7 @@ import org.springframework.security.config.annotation.web.configuration.WebSecur
 class ConfigSecurity : WebSecurityConfigurerAdapter() {
 
     override fun configure(auth: AuthenticationManagerBuilder) {
-        auth.inMemoryAuthentication().withUser("chef@cookmasters").password("cooking").roles("USER")
+        auth.inMemoryAuthentication().withUser("chef").password("cooking").roles("USER")
     }
 
     override fun configure(http: HttpSecurity) {

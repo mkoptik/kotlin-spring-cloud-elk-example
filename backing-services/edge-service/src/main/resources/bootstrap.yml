@@ -10,6 +10,7 @@ zuul:
     ui:
       path: /ui/**
       url: http://localhost:3000/
+  sensitive-headers: Cookie,Set-Cookie
 
 logging:
   level:
