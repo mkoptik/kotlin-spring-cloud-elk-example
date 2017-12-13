@@ -11,6 +11,7 @@ import org.springframework.security.authentication.AuthenticationManager
 import org.springframework.beans.factory.annotation.Autowired
 import org.springframework.beans.factory.annotation.Qualifier
 import org.springframework.core.io.ClassPathResource
+import org.springframework.security.oauth2.config.annotation.web.configurers.AuthorizationServerSecurityConfigurer
 import org.springframework.security.oauth2.provider.token.store.JwtAccessTokenConverter
 import org.springframework.security.rsa.crypto.KeyStoreKeyFactory
 
@@ -18,12 +19,17 @@ import org.springframework.security.rsa.crypto.KeyStoreKeyFactory
 @Configuration
 class ConfigOAuth : AuthorizationServerConfigurerAdapter() {
 
+    override fun configure(server: AuthorizationServerSecurityConfigurer) {
+        server.allowFormAuthenticationForClients().tokenKeyAccess("permitAll()")
+    }
+
     override fun configure(clients: ClientDetailsServiceConfigurer) {
         clients.inMemory()
                 .withClient("chiezoaTouT2quoo")
                 .secret("bai4voroo5cahboVa0haeyenaxaexero")
                 .scopes("COOKING-APP")
                 .authorizedGrantTypes("implicit", "refresh_token", "password", "authorization_code")
+                .autoApprove(true)
     }
 
     override fun configure(endpoints: AuthorizationServerEndpointsConfigurer) {

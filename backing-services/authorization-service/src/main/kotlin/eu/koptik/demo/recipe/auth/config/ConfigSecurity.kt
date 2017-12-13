@@ -15,15 +15,7 @@ class ConfigSecurity : WebSecurityConfigurerAdapter() {
     }
 
     override fun configure(http: HttpSecurity) {
-        http.authorizeRequests()
-                .anyRequest().authenticated()
-                .antMatchers("/css/**").permitAll()
-                .and()
-                .formLogin().loginPage("/login").usernameParameter("email").passwordParameter("password") .permitAll()
-                .and()
-                .logout().permitAll()
-                .and().httpBasic()
-                .and().csrf().disable()
+        http.httpBasic().and().csrf().disable()
 
     }
 

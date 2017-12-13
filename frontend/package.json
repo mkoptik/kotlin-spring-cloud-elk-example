@@ -19,6 +19,7 @@
     "@types/react-redux": "5.0.13",
     "@types/react-router": "4.0.18",
     "@types/redux-actions": "2.2.2",
+    "@types/redux-thunk": "^2.1.0",
     "@types/webpack": "3.8.1",
     "@types/webpack-env": "1.13.2",
     "awesome-typescript-loader": "^3.4.0",
@@ -43,7 +44,6 @@
     "webpack-dev-server": "^2.9.4"
   },
   "dependencies": {
-    "@types/redux-thunk": "^2.1.0",
     "classnames": "^2.2.5",
     "material-ui": "^0.20.0",
     "react": "^16.1.1",
@@ -52,6 +52,7 @@
     "react-router": "^4.2.0",
     "redux": "^3.7.2",
     "redux-actions": "^2.2.1",
-    "redux-thunk": "^2.2.0"
+    "redux-thunk": "^2.2.0",
+    "axios": "^0.17.1"
   }
 }

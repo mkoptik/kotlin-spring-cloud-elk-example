@@ -5,16 +5,17 @@ spring:
     config:
       uri: http://localhost:8081
 
-security:
-  oauth2:
-    sso:
-      loginPath: /api/uaa/login
-
 zuul:
   routes:
     ui:
       path: /ui/**
       url: http://localhost:3000/
+
+logging:
+  level:
+    org.springframework.security: DEBUG
+    org.springframework.cloud: DEBUG
+    org.springframework.web: WARN
 
 server:
   port: 8765
