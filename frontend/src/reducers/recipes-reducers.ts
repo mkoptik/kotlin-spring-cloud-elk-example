@@ -1,21 +1,26 @@
 
 import {Recipe} from "../model/Recipe";
-import {FetchHomePageRecipesAction} from "../actions/recipe-actions";
+import {FETCH_HOMEPAGE_RECIPES, FetchHomePageRecipesAction} from "../actions/recipe-actions";
 
-export interface RecipesState {
+export interface HomeRecipesState {
     featured: Recipe[],
     recommended: Recipe[]
 }
 
-const recipesStateInitial: RecipesState = {
+const homeRecipesStateInitial: HomeRecipesState = {
     featured: [],
     recommended: []
 };
 
 type RecipeActions = FetchHomePageRecipesAction;
 
-export function recipesReducer(state: RecipesState = recipesStateInitial, action: RecipeActions) {
+export function recipesReducer(state: HomeRecipesState = homeRecipesStateInitial, action: RecipeActions) {
     switch (action.type) {
+        case FETCH_HOMEPAGE_RECIPES:
+            return Object.assign({}, state, {
+                featured: action.featured,
+                recommended: action.recommended
+            });
         default:
             return state;
     }

@@ -7,13 +7,17 @@ import {AppBar, Dialog, FlatButton, IconMenu, MenuItem, TextField} from "materia
 import {login, openLoginDialog} from "../../actions/login-actions";
 import LoginDialog from "../../components/LoginDialog/index";
 import {fetchHomePageRecipes} from "../../actions/recipe-actions";
+import {Recipe} from "../../model/Recipe";
+import RecipeBox from "../../components/RecipeBox/index";
 
 interface AppProps {
     onOpenLoginDialog: { (open: boolean): void }
     onSubmitLoginDialog: { (username: string, password: string): void }
     onFetchRecipes: { (): void }
     loginDialogOpened: boolean,
-    loggedUsername: string
+    loggedUsername: string,
+    featuredRecipes: Recipe[],
+    recommendedRecipes: Recipe[]
 }
 
 @connect(mapStateToProps, mapDispatchToProps)
@@ -37,7 +41,8 @@ export class App extends React.Component<AppProps, {}> {
                 <AppBar title="Spring Cloud Example Project | Perfect  Recipes" iconElementRight={appBarRightElement}/>
                 <LoginDialog opened={this.props.loginDialogOpened}
                              onCancel={() => this.props.onOpenLoginDialog(false)}
-                             onSubmit={this.props.onSubmitLoginDialog}/>
+                             onSubmit={this.props.onSubmitLoginDialog} />
+                <div>{this.props.featuredRecipes.map(r => <RecipeBox key={r.id} recipe={r} />)}</div>
             </div>
         );
     }
@@ -46,7 +51,9 @@ export class App extends React.Component<AppProps, {}> {
 function mapStateToProps(state: RootState) {
     return {
         loginDialogOpened: state.login.loginDialogOpened,
-        loggedUsername: state.login.loggedUsername
+        loggedUsername: state.login.loggedUsername,
+        featuredRecipes: state.homeRecipes.featured,
+        recommendedRecipes: state.homeRecipes.recommended
     };
 }
 
