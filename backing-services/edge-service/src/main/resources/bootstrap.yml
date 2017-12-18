@@ -4,6 +4,8 @@ spring:
   cloud:
     config:
       uri: http://localhost:8081
+  zipkin:
+      baseUrl: http://localhost:8099
 
 zuul:
   routes:
@@ -17,6 +19,7 @@ logging:
     org.springframework.security: DEBUG
     org.springframework.cloud: DEBUG
     org.springframework.web: WARN
+    zipkin: DEBUG
 
 server:
   port: 8765
