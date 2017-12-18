@@ -3,6 +3,7 @@ import {RootState} from "../reducers/index";
 import Axios, {AxiosRequestConfig} from "axios";
 import {AccessTokenResponse} from "../model/AccessTokenResponse";
 import {UserInfo} from "../model/UserInfo";
+import {fetchHomePageRecipes} from "./recipe-actions";
 
 export const OPEN_LOGIN_DIALOG = "OPEN_LOGIN_DIALOG";
 export const USER_LOGGED_IN = "USER_LOGGED_IN";
@@ -50,6 +51,7 @@ export const login = (username: string, password: string): ThunkAction<void, Roo
             username: response.data.username
         };
         dispatch(action)
+        dispatch(fetchHomePageRecipes())
     }).catch(error => {
         alert(error)
     })

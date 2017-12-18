@@ -6,4 +6,8 @@ interface RecipesRepository {
 
     fun getFeaturedRecipes(): Collection<RecipeDto>
 
+    fun getAllRecipes(): Collection<RecipeDto>
+
+    fun getByIds(ids: Collection<Int>): Collection<RecipeDto>
+
 }
