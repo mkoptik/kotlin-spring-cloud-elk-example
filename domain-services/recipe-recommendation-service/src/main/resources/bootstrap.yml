@@ -4,8 +4,14 @@ spring:
   cloud:
     config:
       uri: http://localhost:8081
+  zipkin:
+      baseUrl: http://localhost:8099
+  sleuth:
+    sampler:
+      percentage: 1.0
 
 server:
   port: 0
 
 logging.level.org.springframework.security: DEBUG
+logging.level.zipkin: DEBUG

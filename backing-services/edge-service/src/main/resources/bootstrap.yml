@@ -5,7 +5,10 @@ spring:
     config:
       uri: http://localhost:8081
   zipkin:
-      baseUrl: http://localhost:8099
+    baseUrl: http://localhost:8099
+  sleuth:
+    sampler:
+      percentage: 1.0
 
 zuul:
   routes:
