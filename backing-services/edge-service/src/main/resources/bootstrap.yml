@@ -4,25 +4,6 @@ spring:
   cloud:
     config:
       uri: http://localhost:8081
-  zipkin:
-    baseUrl: http://localhost:8099
-  sleuth:
-    sampler:
-      percentage: 1.0
-
-zuul:
-  routes:
-    ui:
-      path: /ui/**
-      url: http://localhost:3000/
-  sensitive-headers: Cookie,Set-Cookie
-
-logging:
-  level:
-    org.springframework.security: DEBUG
-    org.springframework.cloud: DEBUG
-    org.springframework.web: WARN
-    zipkin: DEBUG
 
 server:
   port: 8765
