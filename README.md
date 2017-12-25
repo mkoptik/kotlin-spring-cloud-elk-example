@@ -1,6 +1,14 @@
 # kotlin-spring-cloud-elk-example
 
-## Service configuration
+## Running the project
+
+### Docker
+Each module is dockerized and contains Dockerfile. Build docker images with maven command `mvn install` on root pom.xml. 
+> Maven configuration uses [docker-maven-plugin](https://github.com/spotify/docker-maven-plugin) to build docker images. If your environment requires administration privileges to execute docker commands, use `sudo mvn install`
+
+When build finished successfully, run all containers with docker-compose command `docker-compose up` in project root directory.
+
+## Services configuration
 
 Project uses Spring Configuration Server for configuration files distribution into service instances. Most of the services (except the config service) contains only bootstrap.yml file, where is only minimum necessary configuration. 
 Usually only a URL to configuration server and own port. When a service is registered in service registry, port number is random.

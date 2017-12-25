@@ -31,4 +31,8 @@
         </dependency>
     </dependencies>
 
+    <properties>
+        <start-class>eu.koptik.demo.recipe.config.ConfigServiceApplicationKt</start-class>
+    </properties>
+
 </project>

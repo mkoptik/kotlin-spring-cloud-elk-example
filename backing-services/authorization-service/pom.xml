@@ -46,4 +46,8 @@
         </dependency>
     </dependencies>
 
+    <properties>
+        <start-class>eu.koptik.demo.recipe.auth.AuthorizationServiceApplicationKt</start-class>
+    </properties>
+
 </project>
